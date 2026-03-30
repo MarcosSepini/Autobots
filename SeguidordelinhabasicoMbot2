@@ -8,18 +8,24 @@ import event, time, cyberpi, mbuild, mbot2
 def is_btn_press():
     while True:
       # Deixa maior a priorização de ficar no meio da linha
+      #Só o sensor L1 na linha
       if mbuild.quad_rgb_sensor.get_line_sta("all", 1) == 4:
+      #virar até centralizar os dois na linha
         while not mbuild.quad_rgb_sensor.get_line_sta("all", 1) == 6:
           mbot2.turn_right(50)
 
       else:
+      #Só o sensor R1 na linha 
         if mbuild.quad_rgb_sensor.get_line_sta("all", 1) == 2:
+      #Virar ate´centarlizar os dois an linha
           while not mbuild.quad_rgb_sensor.get_line_sta("all", 1) == 6:
             mbot2.turn_left(50)
 
         else:
+      #se os dois estiver na linha, seguir reto
           if mbuild.quad_rgb_sensor.get_line_sta("all", 1) == 6:
             mbot2.forward(50)
 
           else:
+      #nenhum, GAP
             mbot2.forward(50)
