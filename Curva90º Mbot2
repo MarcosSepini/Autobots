@@ -1,0 +1,20 @@
+@event.is_press('b')
+def is_btn_press():
+    global leftpower, rightpower, Kp, basepower, deviation
+    while True:
+  #curva 90º a direta
+      if mbuild.quad_rgb_sensor.get_line_sta("all", 1) == 7:
+        mbot2.forward(28, 0.8)
+        mbot2.EM_stop("ALL")
+#virar até fica com R1 E L1 na linha
+        while not mbuild.quad_rgb_sensor.get_line_sta("all", 1) == 6:
+          mbot2.turn_right(50)
+
+      else:
+  #curva 90º a direta
+        if mbuild.quad_rgb_sensor.get_line_sta("all", 1) == 14:
+          mbot2.forward(28, 0.8)
+          mbot2.EM_stop("ALL")
+#virar até fica com R1 E L1 na linha
+          while not mbuild.quad_rgb_sensor.get_line_sta("all", 1) == 6:
+            mbot2.turn_left(50)
