@@ -1,0 +1,25 @@
+import event, time, cyberpi, mbuild, mbot2
+# Deixa maior a priorização de ficar no meio da linha
+#Criador: Marcos DIas Sepini
+#OBR 2026
+
+
+@event.is_press('b')
+def is_btn_press():
+    while True:
+      # Deixa maior a priorização de ficar no meio da linha
+      if mbuild.quad_rgb_sensor.get_line_sta("all", 1) == 4:
+        while not mbuild.quad_rgb_sensor.get_line_sta("all", 1) == 6:
+          mbot2.turn_right(50)
+
+      else:
+        if mbuild.quad_rgb_sensor.get_line_sta("all", 1) == 2:
+          while not mbuild.quad_rgb_sensor.get_line_sta("all", 1) == 6:
+            mbot2.turn_left(50)
+
+        else:
+          if mbuild.quad_rgb_sensor.get_line_sta("all", 1) == 6:
+            mbot2.forward(50)
+
+          else:
+            mbot2.forward(50)
